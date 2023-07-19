@@ -4,14 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="jquery-3.2.1.min.js"></script>
+     <!-- <script src="jquery-3.2.1.min.js"></script> -->
+ <script src="https://code.jquery.com/jquery-3.7.0.js"></script> 
 </head>
 <body>
-    <p>Hello</p>
+    <ol>
+        <li>
+            Hey
+        </li>
+        <li>
+            bye
+        </li>
+    </ol>
+
+<button type="button" class="add">Add item</button>
+  
+
+
+
+
     <script>
-        $('p').on('click',function(){
-            console.log("yes parag is clicked");
-        })
+       $("li").on('mouseleave',function(){
+         alert('hello');
+      });
+        
     </script>
 </body>
 </html>
