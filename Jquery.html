@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.2.1.min.js"></script>
+</head>
+<body style="height: 300vh;">
+    
+    <button type="button" id="myButton">Click Here to stop further submiting</button>
+    <button type="button" id="button2">clicked by 1 time only</button>
+    <button type="button" id="button3">Trigger Event</button>
+    <input type="text" id="input1" placeholder="Enter your name">
+    <p id="p1">
+        <input type="text" id="input3">
+        <span></span>
+    </p>
+    <div>
+        <form action="" id="form">
+            <input type="text" placeholder="write email"><br />
+            <input type="tel" placeholder="write phone number">
+            <button type="button" id="submit">submit</button>
+        </form>
+        
+    </div>
+    <input type="text" id="input2">
+    <div id="result"></div>
+    <img id="img1" src="https://cdn.pixabay.com/photo/2015/12/01/20/28/road-1072823_0.jpg" alt="">
+    <img class="img2" style="height: 100%;width: 2%;" src="https://static.vecteezy.com/system/resources/previews/022/448/291/original/save-earth-day-poster-environment-day-nature-green-ai-generative-glossy-background-images-tree-and-water-free-photo.jpg" alt="">
+    <script>
+        $(document).ready(function(){
+            // error handler
+            $('img').on("error",function(){
+            alert("Failed to load image");
+            });
+            // resize
+            $(window).on("resize", function() {
+                if ($(window).width() < 768) {
+                    $("#result").text("Small Screen");
+                } else if ($(window).width() >= 768 && $(window).width() < 992) {
+                    $("#result").text("Medium Screen");
+                } else {
+                    $("#result").text("Large Screen");
+                }
+            });
+            // scroll
+            $(window).on("scroll",function(){
+                $("img").width($(window).scrollTop());
+            });
+
+            $(".img2").on("load", function() {
+                alert("image loaded successfully");
+            });
+
+            function clickHandler() {
+                alert("Button clicked!");
+            }
+            $("#myButton").on("click", clickHandler);
+            $("#myButton").off("click", clickHandler);
+            $("#button2").one("click",function(){
+                $("#input1").select();
+                alert("button is clicked");
+            })
+            $('#button3').trigger("click");
+            $("#input1").blur(function() {
+                alert("Input loses focus ");
+            });
+            $("#input1").change(function() {
+                alert("Input is changed ");
+            });
+            $("#input1").on("focus",function() {
+                $("#input1").css({"background-color":"red"});
+            });
+            $("div").focusin(function(){
+                $("div").css({"background-color":"red"});
+            });
+            $("div").focusout(function(){
+                $("div").css({"background-color":"beige"});
+            })
+            $('#submit').click(function(){
+                $("#form").submit();
+            });
+            $("#input3").on("keypress",function(){
+                $("span").text($("#input3").val());
+            })
+            $("#input3").on("keyup",function(){
+                $("#input3").css("background-color", "yellow");
+            });
+            $("#input3").on("keydown",function(){
+                $("#input3").css("background-color", "pink");
+            })
+            
+        })
+        
+        console.log("yes");
+    </script>
+</body>
+</html>
