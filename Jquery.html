@@ -78,10 +78,12 @@
             $("div").focusout(function(){
                 $("div").css({"background-color":"beige"});
             })
-            $('#submit').click(function(){
+            $('#submit').click(function(e){
                 $("#form").submit();
+                e.preventDefault();
             });
-            $("#input3").on("keypress",function(){
+            $("#input3").on("keypress",function(event){
+                
                 $("span").text($("#input3").val());
             })
             $("#input3").on("keyup",function(){
@@ -89,8 +91,51 @@
             });
             $("#input3").on("keydown",function(){
                 $("#input3").css("background-color", "pink");
-            })
-            
+            });
+            $("#myButton").dblclick(function(event){
+                if(event.altKey){
+                    alert("ALTKEY is pressed");
+                    event.stopPropagation();
+                    alert("Was event.stopPropagation() called: " +  event.isPropagationStopped());
+                }
+                if(event.ctrlKey){
+                    alert("CTRL KEY is pressed");
+                    event.stopImmediatePropagation();
+                    alert("Was event.stopImmediatePropagation() called: " +  event.isImmediatePropagationStopped());
+                }
+                if(event.shiftKey){
+                    alert("Shift KEY is pressed");
+                }
+                alert("double clicked");
+            });
+            $(".img2").on("contextmenu",function(){
+                alert("context menu triggered");
+            });
+            $("#submit").hover(function(){
+                $("#submit").css({"color":"green"});
+            });
+            $(".img2").mouseenter(function(){
+                alert("mouse enetered on image");
+            });
+            $(".img2").mouseleave(function(){
+                alert("mouse leave the image");
+            });
+            $("body").mouseup(function(){
+                $("body").css({"background-color":"beige"});
+            });
+            $("body").mousedown(function(){
+                $("body").css({"background-color":"white"});
+            });
+            $("p").mouseover(function(){
+                $("p").css("background-color", "yellow");
+            });
+            $("p").mouseout(function(){
+                $("p").css("background-color", "lightgray");
+            });
+            $("body").mousemove(function(event){
+                $("#p1").text("x = "+event.pageX + ", y = " + event.pageY);
+            });
+
         })
         
         console.log("yes");

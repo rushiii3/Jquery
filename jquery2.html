@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.2.1.min.js"></script>
+</head>
+<body>
+    <p>
+        This is for fading
+        <button type="button" id="fadein">Click to fadeIn</button>
+    <button type="button" id="fadeout">Click to fadeOut</button>
+    <button type="button" id="fadetoggle">Click to fadeToggle</button>
+    <button type="button" id="fadeto">Click to fadeTo</button>
+    </p>
+    <p>
+        This is for sliding
+        <button type="button" id="slideup">Click to SlideUp</button>
+    <button type="button" id="slidedown">Click to SlideDown</button>
+    <button type="button" id="slidetoggle">Click to SlideToggle</button>
+    </p>
+
+    
+   <div style="background-color: aqua;height: 10rem;margin-block: 2rem;"> 
+        This is inside the Div to show the fading and sliding
+   </div>
+   <script>
+    $(document).ready(function(){
+        $("#fadein").on("click",function(){
+            $("div").fadeIn("slow");
+        });
+        $("#fadeout").on("click",function(){
+            $("div").fadeOut("fast");
+        });
+        $("#fadetoggle").on("click",function(){
+            $("div").fadeToggle(500);
+        });
+        $("#fadeto").on("click",function(){
+            $("div").fadeTo(500,0.8);
+            $("div").fadeTo(500,0.4);
+            $("div").fadeTo(500,0);
+        });
+        $("#slideup").on("click",function(){
+            $("div").slideUp("slow");
+        });
+        $("#slidedown").on("click",function(){
+            $("div").slideDown("fast");
+        });
+        $("#slidetoggle").on("click",function(){
+            $("div").slideToggle(5000);
+        })
+
+    })
+   </script>
+</body>
+</html>
