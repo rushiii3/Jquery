@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.2.1.min.js"></script>
+</head>
+<body>
+    <button type="button" id="b1">click to hide</button>
+    <button type="button" id="gv">Get and set value</button>
+    <button type="button" id="gt">get text value from span</button>
+    <button type="button" id="gd">get all elemnet of div</button>
+    <button type="button" id="si">set input value</button>
+   <div id="d1" style="background-color: bisque;height:40vh;">
+        <input type="text" id="t1">
+        <input type="text" id="t2">
+        <span id="s1"></span>
+   </div>
+   <div id="d2"></div>
+<script>
+    $("#b1").on("click",function(){
+        $("#d1").toggle(5000,function(){
+            alert("toggle event occured");
+        });
+    });
+    $("#gv").on("click",function(){
+        $("span").text($("#t1").val());
+    });
+    $("#gt").on("click",function(){
+        alert($("span").text());
+    });
+    $("#gd").on("click",function(){
+        $("#d2").html($("#d1").html());
+    });
+    $("#si").on("click",function(){
+        $("#t2").val($("#t1").val());
+    });
+
+
+</script>
+</body>
+</html>

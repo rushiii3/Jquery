@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.2.1.min.js"></script>
+</head>
+<body>
+    <button type="button" id="ap">Append</button>
+    <button type="button" id="pp">Prepend</button>
+    <button type="button" id="be">Before</button>
+    <button type="button" id="ar">after</button>
+    <button type="button" id="re">Remove</button>
+    <button type="button" id="ey">Empty</button>
+    <button type="button" id="si">set image</button>
+    <button type="button" id="ri">remove image</button>
+    <img src="" alt="" style="width: 100%;">
+    <ul>
+        <li>red</li>
+        <li>blue</li>
+    </ul>
+    <script>
+        $("#ap").click(function(){
+            $("ul").append("<li>Orange</li>");
+        });
+        $("#pp").click(function(){
+            $("ul").prepend("<li>Purple</li>");
+        });
+        $("#be").click(function(){
+            $("ul").before("<p>Hello here</p>");
+        });
+        $("#ar").click(function(){
+            $("ul").after("<p>Hello here</p>");
+        });
+        $("#re").click(function(){
+            $("p").remove();
+        });
+        $("#ey").click(function(){
+            $("ul").remove();
+        });
+        $("#si").click(function(){
+            $("img").attr("src","https://static.vecteezy.com/system/resources/previews/022/448/291/original/save-earth-day-poster-environment-day-nature-green-ai-generative-glossy-background-images-tree-and-water-free-photo.jpg");
+        });
+        $("#ri").click(function(){
+            $("img").removeAttr("src");
+        });
+    </script>
+</body>
+</html>
