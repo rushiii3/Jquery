@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.2.1.min.js"></script>
+</head>
+<body>
+    <button type="button" id="animate1">Click to animate</button>
+    <div id="div1" style="height: 10rem;background-color: burlywood;width: 10rem;position: absolute;border-radius: 50%;;">
+
+    </div>
+
+    <script>
+        $("#animate1").on("click",function(){
+            $("#div1").animate({
+                left:"+=10px",
+                width:"+=20px",
+                height:"toggle",
+                opacity:0.3,
+            },"fast").css({"background-color":"coral"}).fadeIn();
+            $("#div1").animate({
+                left:"+=530px",
+                width:"+=20px",
+                height:"+=40px",
+                opacity:0.9,
+            },5000).css({"background-color":"chocolate"}).fadeOut();
+        })
+    </script>
+</body>
+</html>
